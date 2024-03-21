@@ -3,13 +3,13 @@ import { useParams, Link, useNavigate } from "react-router-dom";
 
 
 
-const Details = () => {
+const SingleCharacter = () => {
     const [singleObject, setSingleObject] = useState({});
     const params = useParams();
 
     const getSingleObject = async () => {
         try {
-          const response = await fetch(`https://www.swapi.tech/api/${params.type}/${params.id}`);
+          const response = await fetch(`https://www.swapi.tech/api/people/${params.id}`);
           const data = await response.json();
           setSingleObject(data.result.properties);
         } catch (error) {
@@ -26,18 +26,18 @@ const Details = () => {
             <div className="card mb-3">
                 <div className="row g-0">
                     <div className="col-md-4">
-                        <img src={(params.type==="planets" && params.id === "1") ? "https://static.wikia.nocookie.net/esstarwars/images/b/b0/Tatooine_TPM.png/revision/latest?cb=20131214162357" : `https://starwars-visualguide.com/assets/img/${(params.type==="people") ? "characters" : params.type}/${params.id}.jpg`} className="img-fluid rounded-start" alt="..."></img>
+                        <img src={`https://starwars-visualguide.com/assets/img/characters/${params.id}.jpg`} className="img-fluid rounded-start" alt="..."></img>
                     </div>
                     <div className="col-md-8">
                         <div className="card-body">
                             <h5 className="card-title">{singleObject.name}</h5>
                             <p className="card-text">Birth year: {singleObject.birth_year}</p>
-                            <p className="card-text">Height: {singleObject.height}</p>
+                            <p className="card-text">Height: {singleObject.height}cm</p>
                             <p className="card-text">Hair color: {singleObject.hair_color}</p>
                             <p className="card-text">Eye color: {singleObject.eye_color}</p>
                             <p className="card-text">Gender: {singleObject.gender}</p>
                             <p className="card-text">Skin color: {singleObject.skin_color}</p>
-                            <p className="card-text">Homeworld: {singleObject.homeworld}</p>
+                            {/* <p className="card-text">Homeworld: {singleObject.homeworld}</p> */}
                         </div>
                     </div>
                 </div>
@@ -46,4 +46,4 @@ const Details = () => {
     )
 }
 
-export default Details;
+export default SingleCharacter;

@@ -13,6 +13,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					initial: "white"
 				}
 			],
+			favorites: [],
 			allCharacters: [],
 			allVehicles: [],
 			allPlanets: []
@@ -50,6 +51,20 @@ const getState = ({ getStore, getActions, setStore }) => {
 					console.error(error);
 				}
 			},
+
+			addFavorite: (data, type) => {
+				const store = getStore();
+				const newFav = {...data, type: type};
+				const updateFavorites = [...store.favorites, newFav];
+				setStore({favorites: updateFavorites})
+			},
+
+			removeFav: (index) => {
+				const store = getStore();
+				const updateFav = store.favorites.filter((_, i) => i != index );
+				setStore({favorites: updateFav})
+			},
+
 			changeColor: (index, color) => {
 				//get the store
 				const store = getStore();
@@ -60,7 +75,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					if (i === index) elm.background = color;
 					return elm;
 				});
-
+				
 				//reset the global store
 				setStore({ demo: demo });
 			}
