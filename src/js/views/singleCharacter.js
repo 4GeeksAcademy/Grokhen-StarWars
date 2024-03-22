@@ -37,7 +37,6 @@ const SingleCharacter = () => {
                             <p className="card-text">Eye color: {singleObject.eye_color}</p>
                             <p className="card-text">Gender: {singleObject.gender}</p>
                             <p className="card-text">Skin color: {singleObject.skin_color}</p>
-                            {/* <p className="card-text">Homeworld: {singleObject.homeworld}</p> */}
                         </div>
                     </div>
                 </div>

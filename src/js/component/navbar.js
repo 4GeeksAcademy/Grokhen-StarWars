@@ -7,12 +7,12 @@ export const Navbar = () => {
 	const { store, actions } = useContext(Context);
 	const navigate = useNavigate();
 
-	const handleRemove = (name) => {
-		actions.removeFav(name)
+	const handleRemove = (index) => {
+		actions.removeFav(index)
 	}
 
 	return (
-		<nav className="navbar navbar-light bg-light mb-3 container-fluid">
+		<nav className="navbar navbar-dark bg-black mb-3 mx-4 container-fluid">
 			<Link to="/">
 				<span className="navbar-brand mb-0 h1">StarWars</span>
 			</Link>

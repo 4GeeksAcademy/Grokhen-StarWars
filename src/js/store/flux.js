@@ -54,15 +54,31 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 			addFavorite: (data, type) => {
 				const store = getStore();
-				const newFav = {...data, type: type};
-				const updateFavorites = [...store.favorites, newFav];
-				setStore({favorites: updateFavorites})
+				const isFavorite = store.favorites.some(objeto => objeto.name === data.name);
+				if (!isFavorite) {
+					const newFav = { ...data, type: type };
+					const updateFavorites = [...store.favorites, newFav];
+					setStore({ favorites: updateFavorites })
+				} else { 
+					const updateFav = store.favorites.filter(element => element.name !== data.name)
+					setStore({ favorites: updateFav })
+				};
 			},
 
 			removeFav: (index) => {
 				const store = getStore();
-				const updateFav = store.favorites.filter((_, i) => i != index );
-				setStore({favorites: updateFav})
+				const updateFav = store.favorites.filter((_, i) => i != index);
+				setStore({ favorites: updateFav })
+			},
+
+			getNewPage: async (page) => {
+				try {
+					const response = await fetch(`https://www.swapi.tech/api/people?${page}=page&limit=10`);
+					const data = await response.json();
+					setStore({ allCharacters: data.results });
+				} catch (error) {
+					console.error(error);
+				}
 			},
 
 			changeColor: (index, color) => {
@@ -75,7 +91,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					if (i === index) elm.background = color;
 					return elm;
 				});
-				
+
 				//reset the global store
 				setStore({ demo: demo });
 			}
