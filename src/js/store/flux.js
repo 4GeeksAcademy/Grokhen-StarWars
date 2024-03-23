@@ -1,18 +1,7 @@
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
-			demo: [
-				{
-					title: "FIRST",
-					background: "white",
-					initial: "white"
-				},
-				{
-					title: "SECOND",
-					background: "white",
-					initial: "white"
-				}
-			],
+			demo: [],
 			favorites: [],
 			allCharacters: [],
 			allVehicles: [],
@@ -28,7 +17,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 					const response = await fetch("https://www.swapi.tech/api/people/");
 					const data = await response.json();
 					setStore({ allCharacters: data.results });
-					console.log(data);
 				} catch (error) {
 					console.error(error);
 				}
@@ -71,11 +59,31 @@ const getState = ({ getStore, getActions, setStore }) => {
 				setStore({ favorites: updateFav })
 			},
 
-			getNewPage: async (page) => {
+			getNewChrPage: async (chrPage) => {
 				try {
-					const response = await fetch(`https://www.swapi.tech/api/people?${page}=page&limit=10`);
+					const response = await fetch(`https://www.swapi.tech/api/people?page=${chrPage}&limit=10`);
 					const data = await response.json();
 					setStore({ allCharacters: data.results });
+				} catch (error) {
+					console.error(error);
+				}
+			},
+
+			getNewPltPage: async (pltPage) => {
+				try {
+					const response = await fetch(`https://www.swapi.tech/api/planets?page=${pltPage}&limit=10`);
+					const data = await response.json();
+					setStore({ allPlanets: data.results });
+				} catch (error) {
+					console.error(error);
+				}
+			},
+
+			getNewVhlPage: async (vhlPage) => {
+				try {
+					const response = await fetch(`https://www.swapi.tech/api/vehicles?page=${vhlPage}&limit=10`);
+					const data = await response.json();
+					setStore({ allVehicles: data.results });
 				} catch (error) {
 					console.error(error);
 				}

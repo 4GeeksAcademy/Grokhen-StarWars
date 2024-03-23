@@ -23,14 +23,14 @@ const SinglePlanet = () => {
 
     return (
         <>
-            <div className="card mb-3">
+            <div className="card mb-3 border-danger bg-dark text-light text-center">
                 <div className="row g-0">
                     <div className="col-md-4">
                         <img src={(params.id === "1") ? "https://static.wikia.nocookie.net/esstarwars/images/b/b0/Tatooine_TPM.png/revision/latest?cb=20131214162357" : `https://starwars-visualguide.com/assets/img/planets/${params.id}.jpg`} className="img-fluid rounded-start" alt="..."></img>
                     </div>
                     <div className="col-md-8">
                         <div className="card-body">
-                            <h5 className="card-title">{singleObject.name}</h5>
+                            <h5 className="card-title mb-4">{singleObject.name}</h5>
                             <p className="card-text">Population: {singleObject.population}</p>
                             <p className="card-text">Climate: {singleObject.climate}</p>
                             <p className="card-text">Gravity: {singleObject.gravity}</p>

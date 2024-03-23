@@ -23,14 +23,14 @@ const SingleVehicle = () => {
       
     return (
         <>
-            <div className="card mb-3">
+            <div className="card mb-3 border-danger bg-dark text-light text-center">
                 <div className="row g-0">
                     <div className="col-md-4">
                         <img src={`https://starwars-visualguide.com/assets/img/vehicles/${params.id}.jpg`} className="img-fluid rounded-start" alt="..."></img>
                     </div>
                     <div className="col-md-8">
                         <div className="card-body">
-                            <h5 className="card-title">{singleObject.name}</h5>
+                            <h5 className="card-title mb-4">{singleObject.name}</h5>
                             <p className="card-text">Model: {singleObject.model}</p>
                             <p className="card-text">Crew: {singleObject.crew}</p>
                             <p className="card-text">Passengers: {singleObject.passengers}</p>
