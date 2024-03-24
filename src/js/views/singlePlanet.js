@@ -26,7 +26,7 @@ const SinglePlanet = () => {
             <div className="card mb-3 border-danger bg-dark text-light text-center">
                 <div className="row g-0">
                     <div className="col-md-4">
-                        <img src={(params.id === "1") ? "https://static.wikia.nocookie.net/esstarwars/images/b/b0/Tatooine_TPM.png/revision/latest?cb=20131214162357" : `https://starwars-visualguide.com/assets/img/planets/${params.id}.jpg`} className="img-fluid rounded-start" alt="..."></img>
+                        <img src={(params.id === "1") ? "https://static.wikia.nocookie.net/esstarwars/images/b/b0/Tatooine_TPM.png/revision/latest?cb=20131214162357" : ((params.id === "20") ? `https://qph.cf2.quoracdn.net/main-qimg-cca6401da044683273d781c9d9cf6b40-lq` : `https://starwars-visualguide.com/assets/img/planets/${params.id}.jpg`)} className="img-fluid rounded-start" alt={`image of ${singleObject.name}`}></img>
                     </div>
                     <div className="col-md-8">
                         <div className="card-body">

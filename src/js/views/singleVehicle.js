@@ -26,7 +26,7 @@ const SingleVehicle = () => {
             <div className="card mb-3 border-danger bg-dark text-light text-center">
                 <div className="row g-0">
                     <div className="col-md-4">
-                        <img src={`https://starwars-visualguide.com/assets/img/vehicles/${params.id}.jpg`} className="img-fluid rounded-start" alt="..."></img>
+                        <img src={`https://starwars-visualguide.com/assets/img/vehicles/${params.id}.jpg`} className="img-fluid rounded-start" alt={`image of ${singleObject.name}`}></img>
                     </div>
                     <div className="col-md-8">
                         <div className="card-body">

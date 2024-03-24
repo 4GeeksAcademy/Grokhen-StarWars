@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { Context } from "../store/appContext";
 import { useNavigate } from "react-router-dom";
+import { FaTrashAlt } from "react-icons/fa";
 
 import "../../styles/navbar.css";
 
@@ -24,23 +25,22 @@ export const Navbar = () => {
 							<img className="logo" src={logoSw}></img>
 						</Link>
 					</div>
-					<div className="ml-auto justify-content-between">
-						<div className="dropdown">
-							<button className="btn btn-secondary dropdown-toggle"
+					<div className="ml-auto justify-content-center">
+						<div className="dropstart">
+							<button className="btn btn-danger dropdown-toggle"
 								type="button"
 								data-bs-toggle="dropdown"
 								aria-expanded="false"
 							>
-								Favorites
+								Archived
 							</button>
-							<ul className="dropdown-menu">
+							<ul className="dropdown-menu justify-content-around">
 								{store.favorites.map((object, index) => (
-									<li className="dropdown-item" key={index} >
-										<p onClick={() => navigate(`/details/${(object.type === "characters") ? "people" : object.type}/${object.uid}`)}>{object.name}</p>
-										<span className="fa fa-trash" onClick={() => handleRemove(index)}></span>
+									<li className="dropdown-item btn-dark" key={index} >
+										<p className="col" onClick={() => navigate(`/details/${(object.type === "characters") ? "people" : object.type}/${object.uid}`)}>{object.name}</p>
+										<FaTrashAlt className="col trash" onClick={() => handleRemove(index)}/>
 									</li>
 								))}
-
 
 							</ul>
 						</div>

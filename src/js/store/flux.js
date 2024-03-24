@@ -44,7 +44,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				const store = getStore();
 				const isFavorite = store.favorites.some(objeto => objeto.name === data.name);
 				if (!isFavorite) {
-					const newFav = { ...data, type: type };
+					const newFav = { ...data, type: type, fav: true };
 					const updateFavorites = [...store.favorites, newFav];
 					setStore({ favorites: updateFavorites })
 				} else { 
@@ -59,11 +59,13 @@ const getState = ({ getStore, getActions, setStore }) => {
 				setStore({ favorites: updateFav })
 			},
 
-			getNewChrPage: async (chrPage) => {
+			getNewChrPage: async (chrPage) => {			
 				try {
+					const store = getStore();
 					const response = await fetch(`https://www.swapi.tech/api/people?page=${chrPage}&limit=10`);
 					const data = await response.json();
-					setStore({ allCharacters: data.results });
+					const updateCharacters = store.allCharacters.concat(data.results);
+					setStore({ allCharacters: updateCharacters });
 				} catch (error) {
 					console.error(error);
 				}
@@ -71,9 +73,11 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 			getNewPltPage: async (pltPage) => {
 				try {
+					const store = getStore();
 					const response = await fetch(`https://www.swapi.tech/api/planets?page=${pltPage}&limit=10`);
 					const data = await response.json();
-					setStore({ allPlanets: data.results });
+					const updatePlanets = store.allPlanets.concat(data.results);
+					setStore({ allPlanets: updatePlanets });
 				} catch (error) {
 					console.error(error);
 				}
@@ -81,9 +85,11 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 			getNewVhlPage: async (vhlPage) => {
 				try {
+					const store = getStore();
 					const response = await fetch(`https://www.swapi.tech/api/vehicles?page=${vhlPage}&limit=10`);
 					const data = await response.json();
-					setStore({ allVehicles: data.results });
+					const updateVehicles = store.allVehicles.concat(data.results);
+					setStore({ allVehicles: updateVehicles });
 				} catch (error) {
 					console.error(error);
 				}

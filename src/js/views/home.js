@@ -9,10 +9,8 @@ export const Home = () => {
 
 //Characters page changer
 	const [chrPage, setChrPage] = useState(1)
-	const handlePrevChr = () => {
-		if (chrPage > 1) setChrPage(chrPage - 1)
-	};
-	const handleNextChr = () => {
+
+	const handleMoreChr = () => {
 		if (chrPage < 9) setChrPage(chrPage + 1)
 	}
 	useEffect(() => {
@@ -20,10 +18,7 @@ export const Home = () => {
 	}, [chrPage])
 
 	const [pltPage, setPltPage] = useState(1)
-	const handlePrevPlt = () => {
-		if (pltPage > 1) setPltPage(pltPage - 1)
-	};
-	const handleNextPlt = () => {
+	const handleMorePlt = () => {
 		if (pltPage < 2) setPltPage(pltPage + 1)
 	}
 	useEffect(() => {
@@ -31,10 +26,7 @@ export const Home = () => {
 	}, [pltPage])
 
 	const [vhlPage, setVhlPage] = useState(1)
-	const handlePrevVhl = () => {
-		if (vhlPage > 1) setVhlPage(vhlPage - 1)
-	};
-	const handleNextVhl = () => {
+	const handleMoreVhl = () => {
 		if (vhlPage < 2) setVhlPage(vhlPage + 1)
 	}
 	useEffect(() => {
@@ -50,8 +42,7 @@ export const Home = () => {
 			<div className=" text-center mt-5 mx-5">
 				<h2 className="mb-2">Characters</h2>
 				<div className="mb-2">
-					<button onClick={handlePrevChr}>Prev</button>
-					<button onClick={handleNextChr}>Next</button>
+					<button onClick={handleMoreChr}>Load+</button>
 				</div>
 				<div className="d-flex flex-row flex-nowrap row-cols-1 row-cols-md-5 g-2 overflow-auto mb-5 mx-5 characters">
 					{store.allCharacters.map((character) => (
@@ -60,8 +51,7 @@ export const Home = () => {
 				</div>				
 				<h2 className="mb-2">Planets</h2>
 				<div className="mb-2">
-					<button onClick={handlePrevPlt}>Prev</button>
-					<button onClick={handleNextPlt}>Next</button>
+					<button onClick={handleMorePlt}>Load+</button>
 				</div>
 				<div className="d-flex flex-row flex-nowrap row row-cols-1 row-cols-md-5 g-2 overflow-auto mb-5 mx-5">
 					{store.allPlanets.map((planet) => (
@@ -70,8 +60,7 @@ export const Home = () => {
 				</div>
 				<h2 className="mb-2">Vehicles</h2>
 				<div className="mb-2">
-					<button onClick={handlePrevVhl}>Prev</button>
-					<button onClick={handleNextVhl}>Next</button>
+					<button onClick={handleMoreVhl}>Load+</button>
 				</div>
 				<div className="d-flex flex-row flex-nowrap row-cols-1 row-cols-md-5 g-2 overflow-auto mb-5 mx-5">
 					{store.allVehicles.map((vehicle) => (

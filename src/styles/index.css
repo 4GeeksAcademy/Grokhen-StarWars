@@ -6,3 +6,10 @@ body {
 
 } 
 
+
+.emptyCard:hover {
+  transform: scale(.95); 
+  transition: all 0.3s ease; 
+  filter: saturate(180%);
+
+}
