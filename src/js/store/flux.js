@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
@@ -5,13 +7,14 @@ const getState = ({ getStore, getActions, setStore }) => {
 			favorites: [],
 			allCharacters: [],
 			allVehicles: [],
-			allPlanets: []
+			allPlanets: [],
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
 			exampleFunction: () => {
 				getActions().changeColor(0, "green");
 			},
+
 			getAllCharacters: async () => {
 				try {
 					const response = await fetch("https://www.swapi.tech/api/people/");
@@ -40,16 +43,19 @@ const getState = ({ getStore, getActions, setStore }) => {
 				}
 			},
 
-			addFavorite: (data, type) => {
+			addFavorite: (data, type, bookmark) => {
 				const store = getStore();
+				/* const [bookmark, setBookmark] = useState(false); */
 				const isFavorite = store.favorites.some(objeto => objeto.name === data.name);
 				if (!isFavorite) {
 					const newFav = { ...data, type: type, fav: true };
 					const updateFavorites = [...store.favorites, newFav];
-					setStore({ favorites: updateFavorites })
+					setStore({ favorites: updateFavorites });
+					/* setBookmark(!bookmark); */
 				} else { 
-					const updateFav = store.favorites.filter(element => element.name !== data.name)
-					setStore({ favorites: updateFav })
+					const updateFav = store.favorites.filter(element => element.name !== data.name);
+					setStore({ favorites: updateFav });
+					/* setBookmark(!bookmark); */
 				};
 			},
 
@@ -58,6 +64,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				const updateFav = store.favorites.filter((_, i) => i != index);
 				setStore({ favorites: updateFav })
 			},
+
 
 			getNewChrPage: async (chrPage) => {			
 				try {

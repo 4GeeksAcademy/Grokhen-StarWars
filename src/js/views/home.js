@@ -34,37 +34,37 @@ export const Home = () => {
 	}, [vhlPage])
 
 
-
+	
 	return (
 
 		<>
 
 			<div className=" text-center mt-5 mx-5">
 				<h2 className="mb-2">Characters</h2>
-				<div className="mb-2">
-					<button onClick={handleMoreChr}>Load+</button>
+				<div className="mb-4">
+					<button className="btn btn-light" onClick={handleMoreChr}>Load+</button>
 				</div>
-				<div className="d-flex flex-row flex-nowrap row-cols-1 row-cols-md-5 g-2 overflow-auto mb-5 mx-5 characters">
+				<div className="d-flex flex-row flex-nowrap row-cols-1 row-cols-md-5 g-2 overflow-auto mb-5 mx-5">
 					{store.allCharacters.map((character) => (
-						<EmptyCard cardData={character} type="characters" key={character.uid} />
+						<EmptyCard cardData={character} type="characters" id={character.uid} />
 					))};
 				</div>				
 				<h2 className="mb-2">Planets</h2>
-				<div className="mb-2">
-					<button onClick={handleMorePlt}>Load+</button>
+				<div className="mb-4">
+					<button className="btn btn-light" onClick={handleMorePlt}>Load+</button>
 				</div>
 				<div className="d-flex flex-row flex-nowrap row row-cols-1 row-cols-md-5 g-2 overflow-auto mb-5 mx-5">
 					{store.allPlanets.map((planet) => (
-						<EmptyCard cardData={planet} type="planets" key={planet.uid} />
+						<EmptyCard cardData={planet} type="planets" id={planet.uid} />
 					))};
 				</div>
 				<h2 className="mb-2">Vehicles</h2>
-				<div className="mb-2">
-					<button onClick={handleMoreVhl}>Load+</button>
+				<div className="mb-4">
+					<button className="btn btn-light" onClick={handleMoreVhl}>Load+</button>
 				</div>
 				<div className="d-flex flex-row flex-nowrap row-cols-1 row-cols-md-5 g-2 overflow-auto mb-5 mx-5">
 					{store.allVehicles.map((vehicle) => (
-						<EmptyCard cardData={vehicle} type="vehicles" key={vehicle.uid} />
+						<EmptyCard cardData={vehicle} type="vehicles" id={vehicle.uid} />
 					))};
 				</div>
 			</div>
