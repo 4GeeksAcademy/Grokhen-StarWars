@@ -1,13 +1,12 @@
 .logo {
-    align-self: center;
-    margin-left: 50px;
-    width: 40%;
-    height: 100%;
-  }
+  align-self: center;
+  width: 10rem;
+  height: 50%;
+}
 
-  @media only screen and (max-width: 600px) {
-    .favorite-list {
-      top: 100% !important;
-      right: 0 !important;
-    }
+@media only screen and (max-width: 600px) {
+  .favorite-list {
+    top: 100% !important;
+    right: 0 !important;
   }
+}

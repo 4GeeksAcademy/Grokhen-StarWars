@@ -43,19 +43,19 @@ const getState = ({ getStore, getActions, setStore }) => {
 				}
 			},
 
-			addFavorite: (data, type, bookmark) => {
+			addFavorite: (data, type) => {
 				const store = getStore();
-				/* const [bookmark, setBookmark] = useState(false); */
+				
 				const isFavorite = store.favorites.some(objeto => objeto.name === data.name);
 				if (!isFavorite) {
 					const newFav = { ...data, type: type, fav: true };
 					const updateFavorites = [...store.favorites, newFav];
 					setStore({ favorites: updateFavorites });
-					/* setBookmark(!bookmark); */
+					
 				} else { 
 					const updateFav = store.favorites.filter(element => element.name !== data.name);
 					setStore({ favorites: updateFav });
-					/* setBookmark(!bookmark); */
+					
 				};
 			},
 

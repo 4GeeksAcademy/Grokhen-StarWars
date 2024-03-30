@@ -12,7 +12,7 @@ const EmptyCard = ({ cardData, type }) => {
     const [isFavorite, setIsFavorite] = useState(false);
   
 
-    const handleClick = (data, type, bookmark) => {
+    const handleClick = (data, type) => {
        actions.addFavorite(data, type);
        setIsFavorite(!isFavorite);
     };
