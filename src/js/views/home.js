@@ -6,32 +6,47 @@ import EmptyCard from "../component/emptyCard";
 export const Home = () => {
 	const { store, actions } = useContext(Context);
 	const { state, setState } = useContext(Context)
-
-	//Characters page changer
 	const [chrPage, setChrPage] = useState(1)
+	const [pltPage, setPltPage] = useState(1)
+	const [vhlPage, setVhlPage] = useState(1)
+
+	useEffect(() => {
+		if (store.allCharacters.length != 0) {
+			setChrPage(3)
+		}
+		if (store.allPlanets.length != 0){
+			setPltPage(3)
+		}
+		if (store.allVehicles.length != 0) {
+			setVhlPage(3)
+		}
+	},[])
+
 
 	const handleMoreChr = () => {
-		if (chrPage < 9) setChrPage(chrPage + 1)
+		if (chrPage < 2) setChrPage(chrPage + 1)
 	}
 	useEffect(() => {
 		actions.getNewChrPage(chrPage)
-	}, [chrPage])
+	}, [chrPage === 2])
 
-	const [pltPage, setPltPage] = useState(1)
+	
 	const handleMorePlt = () => {
 		if (pltPage < 2) setPltPage(pltPage + 1)
 	}
 	useEffect(() => {
 		actions.getNewPltPage(pltPage)
-	}, [pltPage])
+	}, [pltPage === 2])
 
-	const [vhlPage, setVhlPage] = useState(1)
+
 	const handleMoreVhl = () => {
 		if (vhlPage < 2) setVhlPage(vhlPage + 1)
 	}
 	useEffect(() => {
 		actions.getNewVhlPage(vhlPage)
-	}, [vhlPage])
+	}, [vhlPage === 2])
+
+
 
 
 
@@ -47,7 +62,7 @@ export const Home = () => {
 					))};
 					<div className="g-col-2 container-fluid emptyCard" onClick={handleMoreChr}>
 						<div className="card h-100 border-danger bg-dark justify-content-center align-items-center" style={{ width: "14rem" }}>
-							<p className="text-light">{chrPage===9 ? "No More Left" : "Load More"}</p>
+							<p className="text-light">{chrPage===1 ? "Load More" : "No More Data Available"}</p>
 						</div>
 					</div>
 				</div>
@@ -58,7 +73,7 @@ export const Home = () => {
 					))};
 					<div className="g-col-2 container-fluid emptyCard" onClick={handleMorePlt}>
 						<div className="card h-100 border-danger bg-dark justify-content-center align-items-center" style={{ width: "14rem" }}>
-							<p className="text-light">{chrPage===9 ? "No More Left" : "Load More"}</p>
+							<p className="text-light">{pltPage===1 ? "Load More" : "No More Data Available"}</p>
 						</div>
 					</div>
 				</div>
@@ -69,7 +84,7 @@ export const Home = () => {
 					))};
 					<div className="g-col-2 container-fluid emptyCard" onClick={handleMoreVhl}>
 						<div className="card h-100 border-danger bg-dark justify-content-center align-items-center" style={{ width: "14rem" }}>
-							<p className="text-light">{chrPage===9 ? "No More Left" : "Load More"}</p>
+							<p className="text-light">{vhlPage===1 ? "Load More" : "No More Data Available"}</p>
 						</div>
 					</div>
 				</div>
