@@ -47,7 +47,7 @@ export const Home = () => {
 					))};
 					<div className="g-col-2 container-fluid emptyCard" onClick={handleMoreChr}>
 						<div className="card h-100 border-danger bg-dark justify-content-center align-items-center" style={{ width: "14rem" }}>
-							<p className="text-light">Load More</p>
+							<p className="text-light">{chrPage===9 ? "No More Left" : "Load More"}</p>
 						</div>
 					</div>
 				</div>
@@ -58,7 +58,7 @@ export const Home = () => {
 					))};
 					<div className="g-col-2 container-fluid emptyCard" onClick={handleMorePlt}>
 						<div className="card h-100 border-danger bg-dark justify-content-center align-items-center" style={{ width: "14rem" }}>
-							<p className="text-light">Load More</p>
+							<p className="text-light">{chrPage===9 ? "No More Left" : "Load More"}</p>
 						</div>
 					</div>
 				</div>
@@ -69,7 +69,7 @@ export const Home = () => {
 					))};
 					<div className="g-col-2 container-fluid emptyCard" onClick={handleMoreVhl}>
 						<div className="card h-100 border-danger bg-dark justify-content-center align-items-center" style={{ width: "14rem" }}>
-							<p className="text-light">Load More</p>
+							<p className="text-light">{chrPage===9 ? "No More Left" : "Load More"}</p>
 						</div>
 					</div>
 				</div>
