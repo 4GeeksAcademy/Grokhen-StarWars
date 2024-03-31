@@ -60,8 +60,8 @@ export const Home = () => {
 					{store.allCharacters.map((character) => (
 						<EmptyCard cardData={character} type="characters" id={character.uid} />
 					))};
-					<div className="g-col-2 container-fluid emptyCard" onClick={handleMoreChr}>
-						<div className="card h-100 border-danger bg-dark justify-content-center align-items-center" style={{ width: "14rem" }}>
+					<div className="g-col-2 container-fluid">
+						<div className="card h-100 border-danger bg-dark justify-content-center align-items-center emptyCard" style={{ width: "14rem" }} onClick={handleMoreChr}>
 							<p className="text-light">{chrPage===1 ? "Load More" : "No More Data Available"}</p>
 						</div>
 					</div>
@@ -71,8 +71,8 @@ export const Home = () => {
 					{store.allPlanets.map((planet) => (
 						<EmptyCard cardData={planet} type="planets" id={planet.uid} />
 					))};
-					<div className="g-col-2 container-fluid emptyCard" onClick={handleMorePlt}>
-						<div className="card h-100 border-danger bg-dark justify-content-center align-items-center" style={{ width: "14rem" }}>
+					<div className="g-col-2 container-fluid">
+						<div className="card h-100 border-danger bg-dark justify-content-center align-items-center emptyCard" style={{ width: "14rem" }} onClick={handleMorePlt}>
 							<p className="text-light">{pltPage===1 ? "Load More" : "No More Data Available"}</p>
 						</div>
 					</div>
@@ -82,8 +82,8 @@ export const Home = () => {
 					{store.allVehicles.map((vehicle) => (
 						<EmptyCard cardData={vehicle} type="vehicles" id={vehicle.uid} />
 					))};
-					<div className="g-col-2 container-fluid emptyCard" onClick={handleMoreVhl}>
-						<div className="card h-100 border-danger bg-dark justify-content-center align-items-center" style={{ width: "14rem" }}>
+					<div className="g-col-2 container-fluid">
+						<div className="card h-100 border-danger bg-dark justify-content-center align-items-center emptyCard" style={{ width: "14rem" }} onClick={handleMoreVhl}>
 							<p className="text-light">{vhlPage===1 ? "Load More" : "No More Data Available"}</p>
 						</div>
 					</div>
