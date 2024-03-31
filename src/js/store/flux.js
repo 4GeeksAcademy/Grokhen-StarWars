@@ -75,10 +75,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 				} else {
 					const updateFav = store.favorites.filter(element => element.name !== data.name);
-					localStorage.removeItem("favorites");
-					localStorage.setItem("favorites", JSON.stringify(updateFav))
 					setStore({ favorites: updateFav });
-
+					localStorage.setItem("favorites", JSON.stringify(store.favorites))
 				};
 			},
 
@@ -86,6 +84,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				const store = getStore();
 				const updateFav = store.favorites.filter((_, i) => i != index);
 				setStore({ favorites: updateFav })
+				localStorage.setItem("favorites", JSON.stringify(store.favorites))
 			},
 
 

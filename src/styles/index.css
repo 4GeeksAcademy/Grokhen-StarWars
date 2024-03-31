@@ -13,3 +13,14 @@ body {
   filter: saturate(180%);
 
 }
+
+
+@media (max-width: 430px) {
+  .mobile {
+    width: 250px;
+  }
+
+  .emptyCard {
+    width: 11rem !important;
+  }
+}

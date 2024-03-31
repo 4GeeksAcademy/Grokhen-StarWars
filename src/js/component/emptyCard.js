@@ -18,7 +18,7 @@ const EmptyCard = ({ cardData, type }) => {
     };
 
     return (
-        <div className="g-col-2">
+        <div className="g-col-2 mobile">
             <div className="card h-100 border-danger bg-dark gap-1  emptyCard" style={{ width: "14rem" }}>
                 <img src={(type === "planets" && cardData.uid === "1") ? "https://static.wikia.nocookie.net/esstarwars/images/b/b0/Tatooine_TPM.png/revision/latest?cb=20131214162357" : ((type === "planets" && cardData.uid === "20") ? `https://qph.cf2.quoracdn.net/main-qimg-cca6401da044683273d781c9d9cf6b40-lq` : `https://starwars-visualguide.com/assets/img/${type}/${cardData.uid}.jpg`)} className="card-img-top rounded" alt={`image of ${cardData.name}`}></img>
                 <div className="card-body bg-dark">
