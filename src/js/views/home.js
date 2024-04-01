@@ -11,13 +11,13 @@ export const Home = () => {
 	const [vhlPage, setVhlPage] = useState(1)
 
 	useEffect(() => {
-		if (store.allCharacters.length != 0) {
+		if (store.allCharacters.length > 10) {
 			setChrPage(3)
 		}
-		if (store.allPlanets.length != 0){
+		if (store.allPlanets.length > 10){
 			setPltPage(3)
 		}
-		if (store.allVehicles.length != 0) {
+		if (store.allVehicles.length > 10) {
 			setVhlPage(3)
 		}
 	},[])
