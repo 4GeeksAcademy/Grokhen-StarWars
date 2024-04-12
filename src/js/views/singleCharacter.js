@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom"; 
+import { URL_API } from "../const/url.const";
 
 
 
@@ -9,7 +10,7 @@ const SingleCharacter = () => {
 
     const getSingleObject = async () => {
         try {
-          const response = await fetch(`https://www.swapi.tech/api/people/${params.id}`);
+          const response = await fetch(`${URL_API}/people/${params.id}`);
           const data = await response.json();
           setSingleObject(data.result.properties);
         } catch (error) {
