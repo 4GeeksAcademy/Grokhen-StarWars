@@ -47,9 +47,6 @@ export const Home = () => {
 	}, [vhlPage === 2])
 
 
-
-
-
 	return (
 
 		<>
@@ -58,7 +55,7 @@ export const Home = () => {
 				<h2 className="mb-2">Characters</h2>
 				<div className="d-flex flex-row flex-nowrap row-cols-1 row-cols-md-5 g-2 overflow-auto mb-5 mx-5">
 					{store.allCharacters.map((character) => (
-						<EmptyCard cardData={character} type="characters" id={character.uid} />
+						<EmptyCard key={character.uid} cardData={character} type="characters" id={character.uid} />
 					))};
 					<div className="g-col-2 container-fluid">
 						<div className="card h-100 border-danger bg-dark justify-content-center align-items-center emptyCard" style={{ width: "14rem" }} onClick={handleMoreChr}>
@@ -69,7 +66,7 @@ export const Home = () => {
 				<h2 className="mb-2">Planets</h2>
 				<div className="d-flex flex-row flex-nowrap row row-cols-1 row-cols-md-5 g-2 overflow-auto mb-5 mx-5">
 					{store.allPlanets.map((planet) => (
-						<EmptyCard cardData={planet} type="planets" id={planet.uid} />
+						<EmptyCard key={planet.uid} cardData={planet} type="planets" id={planet.uid} />
 					))};
 					<div className="g-col-2 container-fluid">
 						<div className="card h-100 border-danger bg-dark justify-content-center align-items-center emptyCard" style={{ width: "14rem" }} onClick={handleMorePlt}>
@@ -80,7 +77,7 @@ export const Home = () => {
 				<h2 className="mb-2">Vehicles</h2>
 				<div className="d-flex flex-row flex-nowrap row-cols-1 row-cols-md-5 g-2 overflow-auto mb-5 mx-5">
 					{store.allVehicles.map((vehicle) => (
-						<EmptyCard cardData={vehicle} type="vehicles" id={vehicle.uid} />
+						<EmptyCard key={vehicle.uid} cardData={vehicle} type="vehicles" id={vehicle.uid} />
 					))};
 					<div className="g-col-2 container-fluid">
 						<div className="card h-100 border-danger bg-dark justify-content-center align-items-center emptyCard" style={{ width: "14rem" }} onClick={handleMoreVhl}>

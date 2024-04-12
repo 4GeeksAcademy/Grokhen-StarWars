@@ -13,7 +13,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 			getAllCharacters: async () => {
 				const store = getStore()
-				console.log(store.allCharacters.length);
 				try {
 					if (store.allCharacters.length === 0) {
 						const response = await fetch("https://www.swapi.tech/api/people/");
