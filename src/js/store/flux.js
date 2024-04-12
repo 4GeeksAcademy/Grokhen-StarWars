@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { URL_API } from "../const/url.const";
+
 
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
@@ -15,7 +17,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				const store = getStore()
 				try {
 					if (store.allCharacters.length === 0) {
-						const response = await fetch("https://www.swapi.tech/api/people/");
+						const response = await fetch(`${URL_API}/people/`);
 						if (!response.ok) {
 							throw new Error("Error al obtener los personajes de la API");
 						}
@@ -32,7 +34,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				const store = getStore()
 				try {
 					if (store.allVehicles.length === 0) {
-						const response = await fetch("https://www.swapi.tech/api/vehicles/");
+						const response = await fetch(`${URL_API}/vehicles/`);
 						if (!response.ok) {
 							throw new Error("Error al obtener los vehiculos de la API");
 						}
@@ -49,7 +51,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				const store = getStore()
 				try {
 					if (store.allPlanets.length === 0) {
-						const response = await fetch("https://www.swapi.tech/api/planets/");
+						const response = await fetch(`${URL_API}/planets/`);
 						if (!response.ok) {
 							throw new Error("Error al obtener los planetas de la API");
 						}
@@ -92,7 +94,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					for (let index = 2; index < 10; index++) {
 						try {
 							const store = getStore();
-							const response = await fetch(`https://www.swapi.tech/api/people?page=${index}&limit=10`);
+							const response = await fetch(`${URL_API}/people?page=${index}&limit=10`);
 							const data = await response.json();
 							const updateCharacters = store.allCharacters.concat(data.results);
 							localStorage.removeItem("allCharacters")
@@ -109,7 +111,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				try {
 					if (pltPage != 1) {
 						const store = getStore();
-						const response = await fetch(`https://www.swapi.tech/api/planets?page=${pltPage}&limit=10`);
+						const response = await fetch(`${URL_API}/planets?page=${pltPage}&limit=10`);
 						const data = await response.json();
 						const updatePlanets = store.allPlanets.concat(data.results);
 						localStorage.removeItem("allPlanets")
@@ -125,7 +127,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				try {
 					if (vhlPage != 1) {
 						const store = getStore();
-						const response = await fetch(`https://www.swapi.tech/api/vehicles?page=${vhlPage}&limit=10`);
+						const response = await fetch(`${URL_API}/vehicles?page=${vhlPage}&limit=10`);
 						const data = await response.json();
 						const updateVehicles = store.allVehicles.concat(data.results);
 						localStorage.removeItem("allVehicles")
